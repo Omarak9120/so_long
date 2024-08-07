@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msarkis <msarkis@student.42.fr>            +#+  +:+       +#+        */
+/*   By: oabdelka <oabdelka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/29 08:54:36 by msarkis           #+#    #+#             */
-/*   Updated: 2024/07/29 08:54:38 by msarkis          ###   ########.fr       */
+/*   Created: 2024/08/07 10:58:37 by oabdelka          #+#    #+#             */
+/*   Updated: 2024/08/07 10:59:14 by oabdelka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #ifndef LIBFT_H
 # define LIBFT_H
