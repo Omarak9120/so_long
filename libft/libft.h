@@ -6,10 +6,9 @@
 /*   By: oabdelka <oabdelka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 10:58:37 by oabdelka          #+#    #+#             */
-/*   Updated: 2024/08/07 10:59:14 by oabdelka         ###   ########.fr       */
+/*   Updated: 2024/08/08 16:41:21 by oabdelka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef LIBFT_H
 # define LIBFT_H

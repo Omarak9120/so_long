@@ -12,7 +12,7 @@
 
 #include "so_long.h"
 
-void initialize_and_check_map(char **av, t_map *map, t_data *data)
+void	initialize_and_check_map(char **av, t_map *map, t_data *data)
 {
 	initialize_map(map);
 	check_map_file(av, map);
@@ -21,12 +21,12 @@ void initialize_and_check_map(char **av, t_map *map, t_data *data)
 	read_map(av[1], map);
 	check_map_validation(map);
 	data->map = map;
-	if (create_window(data) == -1) {
+	if (create_window(data) == -1)
+	{
 		free_map(map);
 		exit_error(map, "ERROR: Failed to create window.");
 	}
 }
-
 
 void	load_images(t_data *data, int *img_width, int *img_height)
 {
@@ -49,37 +49,36 @@ void	load_images(t_data *data, int *img_width, int *img_height)
 	}
 }
 
-void cleanup_images(t_data *data)
+void	cleanup_images(t_data *data)
 {
-    if (data->player_img)
-        mlx_destroy_image(data->ptr, data->player_img);
-    if (data->exit_img)
-        mlx_destroy_image(data->ptr, data->exit_img);
-    if (data->wall_img)
-        mlx_destroy_image(data->ptr, data->wall_img);
-    if (data->collect_img)
-        mlx_destroy_image(data->ptr, data->collect_img);
-    if (data->empty_img)
-        mlx_destroy_image(data->ptr, data->empty_img);
+	if (data->player_img)
+		mlx_destroy_image(data->ptr, data->player_img);
+	if (data->exit_img)
+		mlx_destroy_image(data->ptr, data->exit_img);
+	if (data->wall_img)
+		mlx_destroy_image(data->ptr, data->wall_img);
+	if (data->collect_img)
+		mlx_destroy_image(data->ptr, data->collect_img);
+	if (data->empty_img)
+		mlx_destroy_image(data->ptr, data->empty_img);
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-    int img_width;
-    int img_height;
-    t_map map;
-    t_data data;
+	int		img_width;
+	int		img_height;
+	t_map	map;
+	t_data	data;
 
-    if (ac != 2)
-        exit_error(NULL, "ERROR INVALID MAP INPUT!!!!!!!!!!!!!!!!!!!!!!!!!");
-    initialize_and_check_map(av, &map, &data);
-    load_images(&data, &img_width, &img_height);
-    redraw_map(&data);
-    mlx_hook(data.win, 2, 1L << 0, &handle_keypress, &data);
-    mlx_hook(data.win, 17, 0x20000, &on_destroy, &data);
-    mlx_loop(data.ptr);
-    cleanup_images(&data);
-    free_map(&map);
-    return (EXIT_SUCCESS);
+	if (ac != 2)
+		exit_error(NULL, "ERROR INVALID MAP INPUT!!!!!!!!!!!!!!!!!!!!!!!!!");
+	initialize_and_check_map(av, &map, &data);
+	load_images(&data, &img_width, &img_height);
+	redraw_map(&data);
+	mlx_hook(data.win, 2, 1L << 0, &handle_keypress, &data);
+	mlx_hook(data.win, 17, 0x20000, &on_destroy, &data);
+	mlx_loop(data.ptr);
+	cleanup_images(&data);
+	free_map(&map);
+	return (EXIT_SUCCESS);
 }
-

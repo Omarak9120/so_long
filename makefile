@@ -2,7 +2,11 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror -g -Ilibft -Iminilibx-linux -Iprintf
 LDFLAGS = -Lminilibx-linux -lmlx -L/usr/lib/X11 -lXext -lX11 -Llibft -lft
 
-SRC = map_validation.c utils.c check_map_path.c get_next_line.c get_next_line_utils.c initialize_map.c read_map.c main.c playermove.c create_map.c read_help.c printf/ft_printf.c printf/ft_printf_d.c printf/ft_printf_p.c printf/ft_printf_u.c printf/ft_printf_x.c printf/ft_printf_c.c printf/ft_printf_s.c
+SRC = map_validation.c utils.c check_map_path.c get_next_line.c get_next_line_utils.c \
+      initialize_map.c read_map.c main.c playermove.c create_map.c read_help.c \
+      printf/ft_printf.c printf/ft_printf_d.c printf/ft_printf_p.c printf/ft_printf_u.c \
+      printf/ft_printf_x.c printf/ft_printf_c.c printf/ft_printf_s.c cleanup.c
+
 OBJ = $(SRC:.c=.o)
 TARGET = so_long
 

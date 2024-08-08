@@ -83,7 +83,7 @@ void	read_helper(t_map *map, char *c, int *i, int *j);
 void	read_helper_extra(t_map *map, char *c, int *i, int *j);
 void	handle_error(t_map *map, int fd, int i);
 void	loop_read(t_map *map, char *line, int i, int j);
-void	free_map(t_map *map);  // Add this prototype
+void	free_map(t_map *map);
 int		on_destroy(t_data *data);
 
 #endif

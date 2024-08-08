@@ -6,48 +6,11 @@
 /*   By: oabdelka <oabdelka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 11:00:05 by oabdelka          #+#    #+#             */
-/*   Updated: 2024/08/07 11:00:07 by oabdelka         ###   ########.fr       */
+/*   Updated: 2024/08/08 16:29:47 by oabdelka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-void free_map(t_map *map)
-{
-    int i;
-
-    if (map->tab)
-    {
-        for (i = 0; i < map->size_x; i++)
-        {
-            free(map->tab[i]);
-        }
-        free(map->tab);
-    }
-
-    if (map->visited)
-    {
-        for (i = 0; i < map->size_x; i++)
-        {
-            free(map->visited[i]);
-        }
-        free(map->visited);
-    }
-}
-
-
-int on_destroy(t_data *data)
-{
-    cleanup_images(data);
-    free_map(data->map);
-    mlx_destroy_window(data->ptr, data->win);
-    mlx_destroy_display(data->ptr);
-    free(data->ptr);
-    exit(0);
-    return (0);
-}
-
-
 
 static void	init_visited_array(t_map *map)
 {
@@ -67,7 +30,7 @@ static void	init_visited_array(t_map *map)
 	}
 }
 
-static	int	**allocate_2d_array(int rows, int cols)
+static int	**allocate_2d_array(int rows, int cols)
 {
 	int	**array;
 	int	i;
@@ -105,12 +68,12 @@ void	malloc_tab_visited(t_map *map)
 	init_visited_array(map);
 }
 
-void read_map(const char *filename, t_map *map)
+void	read_map(const char *filename, t_map *map)
 {
-	int i;
-	char *line;
-	int fd;
-	int j;
+	int		i;
+	char	*line;
+	int		fd;
+	int		j;
 
 	i = 0;
 	map->error = 0;
@@ -121,7 +84,7 @@ void read_map(const char *filename, t_map *map)
 		exit_error(map, "ERROR: Could not open map file.");
 	malloc_tab_visited(map);
 	line = get_next_line(fd);
-	while ((line))
+	while (line)
 	{
 		j = 0;
 		loop_read(map, line, i, j);
@@ -131,5 +94,5 @@ void read_map(const char *filename, t_map *map)
 	}
 	free(line);
 	handle_error(map, fd, i);
-	close(fd); // Ensure file descriptor is closed
+	close(fd);
 }
